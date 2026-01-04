@@ -1,14 +1,10 @@
 import asyncio
 from telegram import Update
-from telegram.ext import (
-    ApplicationBuilder,
-    CommandHandler,
-    ContextTypes,
-)
+from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
 BOT_TOKEN = "8314604269:AAEMXYFLycbZlJPDeNZ_H1HBLB8k2B4hmQY"
 
-# /dice handler
+# /dice command
 async def dice(update: Update, context: ContextTypes.DEFAULT_TYPE):
     max_tries = 3
 
@@ -16,17 +12,17 @@ async def dice(update: Update, context: ContextTypes.DEFAULT_TYPE):
         msg = await update.message.reply_dice(emoji="🎲")
         await asyncio.sleep(2)
 
-        # agar 4,5,6 aa gaya to ruk jao
+        # 4,5,6 aate hi ruk jao
         if msg.dice.value > 3:
             break
 
-async def main():
+def main():
     app = ApplicationBuilder().token(BOT_TOKEN).build()
 
     app.add_handler(CommandHandler("dice", dice))
 
     print("✅ Bot started")
-    await app.run_polling()
+    app.run_polling()   # 🔥 yahi loop handle karega (NO asyncio.run)
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()
