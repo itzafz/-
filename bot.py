@@ -6,7 +6,7 @@ BOT_TOKEN = "8314604269:AAEMXYFLycbZlJPDeNZ_H1HBLB8k2B4hmQY"
 
 # /dice command
 async def dice(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    max_tries = 3
+    max_tries = 1
 
     for _ in range(max_tries):
         msg = await update.message.reply_dice(emoji="🎲")
