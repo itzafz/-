@@ -1,5 +1,5 @@
-from pyrogram import Client, filters
 import asyncio
+from pyrogram import Client, filters
 
 API_ID = 24526311
 API_HASH = "717d5df262e474f88d86c537a787c98d"
@@ -17,16 +17,19 @@ app = Client(
 @app.on_message(filters.command("roll") & filters.chat(TARGET_GROUP))
 async def roll_dice(client, message):
     max_tries = 3
-    final_dice = None
 
-    for i in range(max_tries):
+    for _ in range(max_tries):
         dice = await message.reply_dice("🎲")
         await asyncio.sleep(2)
 
-        final_dice = dice
-        if dice.dice.value > 3:   # 4,5,6 mil gaya
+        # mostly 4,5,6
+        if dice.dice.value > 3:
             break
 
-    # koi delete nahi, jo last/high aaya wahi rahega
+async def main():
+    await app.start()
+    print("✅ Dice bot started")
+    await asyncio.Event().wait()   # 🔥 process ko alive rakhta hai
 
-app.run()
+if __name__ == "__main__":
+    asyncio.run(main())
