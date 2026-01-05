@@ -1,2 +1,2 @@
 python-telegram-bot==20.7
-yt-dlp==2024.12.23
+google-api-python-client==2.116.0
