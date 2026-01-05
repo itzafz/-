@@ -1,5 +1,5 @@
-import logging
 import uuid
+import logging
 from telegram import (
     Update,
     InlineKeyboardButton,
@@ -14,67 +14,54 @@ from telegram.ext import (
     ContextTypes
 )
 
-# ========= CONFIG =========
 BOT_TOKEN = "8593863442:AAEQlS24_H9OFsXWFu_eog5bkFWW3rZVDDs"
-# ==========================
 
 logging.basicConfig(level=logging.INFO)
 
-# ---------- /start ----------
+# /start
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    keyboard = InlineKeyboardMarkup([
-        [
-            InlineKeyboardButton(
-                "🎵 Search Song",
-                switch_inline_query_current_chat=""
-            )
-        ]
+    kb = InlineKeyboardMarkup([
+        [InlineKeyboardButton("🎵 Search Song", switch_inline_query_current_chat="")]
     ])
 
     await update.message.reply_text(
-        "🎶 *Song Search Bot*\n\n"
-        "Use button OR type in any chat/group:\n"
-        "`@botusername song name`",
-        reply_markup=keyboard,
-        parse_mode="Markdown"
+        "Song Search Bot\n\n"
+        "Use inline mode:\n"
+        "@botusername song name",
+        reply_markup=kb
     )
 
-# ---------- INLINE QUERY ----------
+# INLINE HANDLER (FIXED)
 async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    query = update.inline_query.query.strip()
+    query = update.inline_query.query
 
-    # Empty query handle
-    if query == "":
-        query = "latest songs"
+    if not query:
+        query = "latest song"
 
     search = query.replace(" ", "+")
-    youtube_link = f"https://www.youtube.com/results?search_query={search}"
+    link = f"https://www.youtube.com/results?search_query={search}"
 
     result = InlineQueryResultArticle(
         id=str(uuid.uuid4()),
-        title=f"🎵 Search: {query}",
-        description="Tap to get YouTube search link",
+        title=f"Search song: {query}",
+        description="Tap to send YouTube search link",
         input_message_content=InputTextMessageContent(
-            f"🎶 *Song Search*\n\n"
-            f"🔎 `{query}`\n"
-            f"▶️ {youtube_link}",
-            parse_mode="Markdown"
+            text=f"Song: {query}\n\nYouTube Search:\n{link}"
         )
     )
 
     await update.inline_query.answer(
         results=[result],
-        cache_time=1
+        cache_time=0
     )
 
-# ---------- MAIN ----------
 def main():
     app = Application.builder().token(BOT_TOKEN).build()
 
     app.add_handler(CommandHandler("start", start))
     app.add_handler(InlineQueryHandler(inline_query))
 
-    print("✅ Bot is running...")
+    print("Bot running...")
     app.run_polling()
 
 if __name__ == "__main__":
