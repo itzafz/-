@@ -4,9 +4,9 @@ from telegram.ext import Application, CommandHandler, ContextTypes, CallbackQuer
 from pymongo import MongoClient
 
 # ==== CONFIG ====
-BOT_TOKEN = "8302954081:AAGNkk35qYHfrACJZwTajaDLKhY5xKnI_IQ"
+BOT_TOKEN = "8189711598:AAGgYOksj7cG4ivc5dLwfsfgjkwvI6kz870"
 MONGO_URI = "mongodb+srv://TRUSTLYTRANSACTIONBOT:TRUSTLYTRANSACTIONBOT@cluster0.t60mxb7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-OWNER_IDS = [8009256753]  
+OWNER_IDS = [8280018677]  
 
 # ==== MongoDB Setup ====
 mongo = MongoClient(MONGO_URI)
@@ -39,13 +39,13 @@ START_MESSAGE = (
 
     "𝟱𝟬,𝟬𝟬𝟬+ 𝗥𝗮𝗿𝗲 𝗗𝗲𝘀𝗶 𝗩𝗶𝗱𝗲𝗼𝘀 🎀\n\n"
 
-    "𝗣𝗿𝗶𝗰𝗲 :- ₹29/-\n\n"
+    "𝗣𝗿𝗶𝗰𝗲 :- ₹99/-\n\n"
     "⚠️ Offer Valid for 24 Hours Only"
 )
 
 PREMIUM_MESSAGE = (
     "💎 Premium Access Details\n\n"
-    "Pay just ₹29/- and get lifetime access!\n\n"
+    "Pay just ₹99/- and get lifetime access!\n\n"
     "Send your payment screenshot to @viralleakin29 ✅"
 )
 
