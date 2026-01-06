@@ -139,7 +139,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         keyboard = [
             [InlineKeyboardButton("💎 Get Premium", callback_data="get_premium")],
             [InlineKeyboardButton("🎥 Demo Channel", url="https://t.me/mmsbhaidemo1")],
-            [InlineKeyboardButton("✅ Proofs", url="https://t.me/mmsbhaiproof69)]
+            [InlineKeyboardButton("✅ Proofs", url="https://t.me/mmsbhaiproof69")]
         ]
         await query.edit_message_media(
             media=InputMediaPhoto(START_IMAGE, caption=START_MESSAGE),
