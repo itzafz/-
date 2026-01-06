@@ -21,7 +21,7 @@ PREMIUM_IMAGE = "https://i.ibb.co/k26ZH6nj/x.jpg"
 # ==== Messages ====
 START_MESSAGE = (
     "💖Agar Apko Bhi 50,000+ Viral Desi "
-    "Videos Lena Hai To Sirf ₹29/- Pay krke Aap\n\n"
+    "Videos Lena Hai To Sirf ₹99/- Pay krke Aap\n\n"
     "Hamare Group Mai Join Karskte hai🥵💦\n\n"
 
     "Is Group me ye saara exclusive content milega 👇👇\n\n"
@@ -114,8 +114,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await save_user(update)
     keyboard = [
         [InlineKeyboardButton("💎 Get Premium", callback_data="get_premium")],
-        [InlineKeyboardButton("🎥 Demo Channel", url="https://t.me/viralleakwala29")],
-        [InlineKeyboardButton("✅ Proofs", url="https://t.me/desivideoin29")]
+        [InlineKeyboardButton("🎥 Demo Channel", url="https://t.me/mmsbhaidemo1")],
+        [InlineKeyboardButton("✅ Proofs", url="https://t.me/mmsbhaiproof69")]
     ]
     await update.message.reply_photo(photo=START_IMAGE, caption=START_MESSAGE, reply_markup=InlineKeyboardMarkup(keyboard))
 
@@ -128,8 +128,8 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if query.data == "get_premium":
         keyboard = [
             [InlineKeyboardButton("🔙 Back", callback_data="back")],
-            [InlineKeyboardButton("🎥 Demo Channel", url="https://t.me/viralleakwala29")],
-            [InlineKeyboardButton("✅ Proofs", url="https://t.me/desivideoin29")]
+            [InlineKeyboardButton("🎥 Demo Channel", url="https://t.me/mmsbhaidemo1")],
+            [InlineKeyboardButton("✅ Proofs", url="https://t.me/mmsbhaiproof69")]
         ]
         await query.edit_message_media(
             media=InputMediaPhoto(PREMIUM_IMAGE, caption=PREMIUM_MESSAGE),
@@ -138,8 +138,8 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     elif query.data == "back":
         keyboard = [
             [InlineKeyboardButton("💎 Get Premium", callback_data="get_premium")],
-            [InlineKeyboardButton("🎥 Demo Channel", url="https://t.me/viralleakwala29")],
-            [InlineKeyboardButton("✅ Proofs", url="https://t.me/desivideoin29")]
+            [InlineKeyboardButton("🎥 Demo Channel", url="https://t.me/mmsbhaidemo1")],
+            [InlineKeyboardButton("✅ Proofs", url="https://t.me/mmsbhaiproof69)]
         ]
         await query.edit_message_media(
             media=InputMediaPhoto(START_IMAGE, caption=START_MESSAGE),
